@@ -1,15 +1,28 @@
 const express = require("express");
-
+const workoutModel = require("../models/workout-model");
 const router = express.Router();
 
-// GET /api/workouts => '/' from below 
+// GET /api/workouts => '/' from below
 router.get("/", (req, res) => {
   res.json({ message: "GET /api/workouts" });
 });
 
 // POST /api/workouts => '/' from below
-router.post("/", (req, res) => {
-  res.json({ message: "POST /api/workouts" });
+router.post("/", async (req, res) => {
+  const { title, reps, weight } = req.body;
+  try {
+    if (!title || !reps || !weight) {
+      res.send("Please provide all fileds.");
+    }
+    const workout = await workoutModel.create({
+      title,
+      reps,
+      weight,
+    });
+    res.status(200).json({ workout: workout });
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
 });
 
 // GET /api/workouts/:id => '/:id' from below
