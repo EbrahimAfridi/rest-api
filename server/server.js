@@ -2,9 +2,11 @@ require("dotenv").config({ path: [".env.local", ".env"] });
 const express = require("express");
 const workOutRouter = require("./routes/workout");
 const { default: mongoose } = require("mongoose");
+const cors = require("cors");
 
 // Create an express app
 const app = express();
+app.use(cors());
 
 // Middleware
 app.use(express.json());

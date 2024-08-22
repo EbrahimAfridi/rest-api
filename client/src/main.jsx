@@ -5,6 +5,7 @@ import "./index.css";
 import { createBrowserRouter, RouterProvider, Link } from "react-router-dom";
 import Layout from "./Layout.jsx";
 
+
 const router = createBrowserRouter([
   {
     element: <Layout />,

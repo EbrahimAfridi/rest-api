@@ -1,5 +1,111 @@
-.container, h1 {
-  /* position: absolute; */
-  /* top: 10px; */
-  color: red;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+:root {
+  --primary: #3498db;
+  --secondary: #2ecc71;
+  --background: #f5f6fa;
+  --text: #2c3e50;
+  --light-text: #7f8c8d;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: var(--background);
+  color: var(--text);
+  line-height: 1.6;
+  overflow-x: hidden;
+  /* Prevent horizontal scroll */
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+nav {
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+nav .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 20px;
+}
+
+nav h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: var(--primary);
+}
+
+main.App {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.workout-details {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.workout-details:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.workout-details h4 {
+  font-size: 1.2rem;
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.workout-details p {
+  margin-bottom: 0.5rem;
+}
+
+.workout-details em {
+  color: var(--light-text);
+  font-size: 0.9rem;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+  nav .container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav .container>div {
+    margin-top: 1rem;
+  }
+
+  main.App {
+    grid-template-columns: 1fr;
+  }
 }
