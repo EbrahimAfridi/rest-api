@@ -26,10 +26,12 @@ function App() {
   }, []);
 
   return (
-    <main className="App">
-      {workouts.map((workout) => {
-        return <WorkoutDetails key={workout._id} workout={workout} />;
-      })}
+    <main className="main">
+      <div className="App">
+        {workouts.map((workout) => {
+          return <WorkoutDetails key={workout._id} workout={workout} />;
+        })}
+      </div>
       <Form />
     </main>
   );

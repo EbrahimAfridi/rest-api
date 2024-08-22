@@ -4,7 +4,7 @@ import App from "./App.jsx";
 import "./index.css";
 import { createBrowserRouter, RouterProvider, Link } from "react-router-dom";
 import Layout from "./Layout.jsx";
-
+import WorkoutContextProvider from "./context/workout-context.jsx";
 
 const router = createBrowserRouter([
   {
@@ -13,7 +13,11 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <App />,
+        element: (
+          <WorkoutContextProvider>
+            <App />
+          </WorkoutContextProvider>
+        ),
       },
       {
         path: "about",
