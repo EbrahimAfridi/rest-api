@@ -33,7 +33,7 @@ const Form = () => {
 
   return (
     <form className="create" onSubmit={handleSubmit}>
-      <h3>Add a new workout ➕</h3>
+      <h3>Add a new workout</h3>
       <label htmlFor="title">Excercise Name</label>
       <input
         placeholder="Name"

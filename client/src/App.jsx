@@ -2,10 +2,10 @@ import "./App.css";
 import React from "react";
 import WorkoutDetails from "./components/WorkoutDetails";
 import Form from "./components/Form";
+import useWorkout from "./hooks/useWorkout";
 
 function App() {
-  const [workouts, setWorkouts] = React.useState([]);
-
+  const { workouts, dispatch } = useWorkout();
   React.useEffect(() => {
     const fetchAllWorkouts = async () => {
       try {
@@ -13,9 +13,7 @@ function App() {
         const data = await res.json();
 
         if (res.ok) {
-          setWorkouts(data);
-        } else {
-          console.error("Error aagaya :(");
+          dispatch({ type: "GET_WORKOUTS", payload: data });
         }
       } catch (error) {
         console.error("Fetch error:", error);
