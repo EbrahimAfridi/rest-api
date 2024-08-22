@@ -1,6 +1,8 @@
 import React from "react";
+import useWorkout from "../hooks/useWorkout";
 
 const Form = () => {
+  const { dispatch } = useWorkout();
   const [title, setTitle] = React.useState("");
   const [reps, setReps] = React.useState(12);
   const [weight, setWeight] = React.useState(10);
@@ -10,7 +12,7 @@ const Form = () => {
     e.preventDefault();
     const workout = { title, reps, weight };
     console.log(workout);
-    
+
     const response = await fetch("http://localhost:3000/api/workouts", {
       method: "POST",
       body: JSON.stringify(workout),
@@ -23,10 +25,13 @@ const Form = () => {
 
     if (!response.ok) {
       setError(data.error);
+      console.error(data.error);
     } else {
       setTitle("");
       setReps(12);
       setWeight(10);
+      setError(null);
+      dispatch({ type: "ADD_WORKOUT", payload: data });
       console.log("New workout added.");
     }
   }
