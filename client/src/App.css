@@ -81,7 +81,7 @@ main.App {
 
 .workout-details h4 {
   font-size: 1.2rem;
-  color: var(--primary);
+  color: var(--secondary);
   margin-bottom: 1rem;
 }
 
@@ -108,4 +108,42 @@ main.App {
   main.App {
     grid-template-columns: 1fr;
   }
+}
+
+/* new workout form */
+label,
+input {
+  display: block;
+}
+
+input {
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+form button {
+  background: var(--secondary);
+  border: 0;
+  color: var(--text);
+  padding: 10px;
+  font-size: 1rem;
+  font-weight: bold;
+  word-spacing: 0.5rem;;
+  font-family: "Poppins";
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+div.error {
+  padding: 10px;
+  background: #ffefef;
+  border: 1px solid var(--error);
+  color: var(--error);
+  border-radius: 4px;
+  margin: 20px 0;
 }

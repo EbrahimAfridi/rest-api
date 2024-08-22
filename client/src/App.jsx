@@ -1,6 +1,7 @@
 import "./App.css";
 import React from "react";
 import WorkoutDetails from "./components/WorkoutDetails";
+import Form from "./components/Form";
 
 function App() {
   const [workouts, setWorkouts] = React.useState([]);
@@ -29,6 +30,7 @@ function App() {
       {workouts.map((workout) => {
         return <WorkoutDetails key={workout._id} workout={workout} />;
       })}
+      <Form />
     </main>
   );
 }
